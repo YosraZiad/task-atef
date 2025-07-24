@@ -6,8 +6,9 @@ const AddCustomerModal = ({ isOpen, onClose, onSubmit, darkMode }) => {
   const isRtl = i18n.dir() === 'rtl';
 
   const [formData, setFormData] = useState({
+    userName: '',
+    password: '',
     fullName: '',
-    companyName: '',
     mobileNumber: '',
     masterMobileNumber: ''
   });
@@ -45,6 +46,36 @@ const AddCustomerModal = ({ isOpen, onClose, onSubmit, darkMode }) => {
             <form onSubmit={handleSubmit}>
               <div className="mb-4">
                 <label className={`block mb-2 ${darkMode ? 'text-gray-300' : 'text-gray-700'} ${isRtl ? 'text-right' : 'text-left'}`}>
+                  اسم المستخدم / Username
+                </label>
+                <input
+                  type="text"
+                  name="userName"
+                  value={formData.userName}
+                  onChange={handleChange}
+                  className={`w-full p-2 border rounded ${darkMode ? 'bg-gray-700 border-gray-600 text-white' : 'bg-white border-gray-300'}`}
+                  required
+                  placeholder="أدخل اسم المستخدم"
+                />
+              </div>
+              
+              <div className="mb-4">
+                <label className={`block mb-2 ${darkMode ? 'text-gray-300' : 'text-gray-700'} ${isRtl ? 'text-right' : 'text-left'}`}>
+                  كلمة المرور / Password
+                </label>
+                <input
+                  type="password"
+                  name="password"
+                  value={formData.password}
+                  onChange={handleChange}
+                  className={`w-full p-2 border rounded ${darkMode ? 'bg-gray-700 border-gray-600 text-white' : 'bg-white border-gray-300'}`}
+                  required
+                  placeholder="أدخل كلمة المرور"
+                />
+              </div>
+              
+              <div className="mb-4">
+                <label className={`block mb-2 ${darkMode ? 'text-gray-300' : 'text-gray-700'} ${isRtl ? 'text-right' : 'text-left'}`}>
                   {t('translations:add_customer_modal.full_name')}
                 </label>
                 <input
@@ -54,19 +85,6 @@ const AddCustomerModal = ({ isOpen, onClose, onSubmit, darkMode }) => {
                   onChange={handleChange}
                   className={`w-full p-2 border rounded ${darkMode ? 'bg-gray-700 border-gray-600 text-white' : 'bg-white border-gray-300'}`}
                   required
-                />
-              </div>
-              
-              <div className="mb-4">
-                <label className={`block mb-2 ${darkMode ? 'text-gray-300' : 'text-gray-700'} ${isRtl ? 'text-right' : 'text-left'}`}>
-                  {t('translations:add_customer_modal.company_name')}
-                </label>
-                <input
-                  type="text"
-                  name="companyName"
-                  value={formData.companyName}
-                  onChange={handleChange}
-                  className={`w-full p-2 border rounded ${darkMode ? 'bg-gray-700 border-gray-600 text-white' : 'bg-white border-gray-300'}`}
                 />
               </div>
               

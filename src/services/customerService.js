@@ -65,38 +65,87 @@ export const addCustomer = async (customerData) => {
 
 export const updateCustomer = async (id, customerData) => {
   try {
+    // التحقق من وجود معرف العميل
+    if (!id) {
+      throw new Error('معرف العميل مطلوب لعملية التحديث');
+    }
+
+    // تسجيل البيانات المرسلة للتشخيص
+    console.log('تحديث العميل - المعرف:', id);
+    console.log('تحديث العميل - البيانات:', customerData);
+
     const response = await api.put(`/customer/${id}`, customerData);
+    
+    console.log('تحديث العميل - الاستجابة:', response.data);
+    toast.success('تم تحديث بيانات العميل بنجاح');
+    
     return response.data;
   } catch (error) {
-    toast.error('فشل في تحديث بيانات العميل. يرجى المحاولة مرة أخرى.');
-    console.error('Error updating customer:', error);
+    // تسجيل تفاصيل الخطأ للتشخيص
+    console.error('خطأ في تحديث العميل:', {
+      customerId: id,
+      customerData: customerData,
+      message: error.message,
+      status: error.response?.status,
+      statusText: error.response?.statusText,
+      data: error.response?.data,
+      url: error.config?.url,
+      timestamp: new Date().toISOString()
+    });
+
+    // رسالة خطأ مفصلة حسب نوع الخطأ
+    let errorMessage = 'فشل في تحديث بيانات العميل.';
+    
+    if (error.response?.status === 401) {
+      errorMessage = 'انتهت صلاحية الجلسة. يرجى تسجيل الدخول مرة أخرى.';
+    } else if (error.response?.status === 403) {
+      errorMessage = 'ليس لديك صلاحية لتعديل هذا العميل.';
+    } else if (error.response?.status === 404) {
+      errorMessage = 'العميل المطلوب تعديله غير موجود.';
+    } else if (error.response?.status === 400) {
+      errorMessage = 'البيانات المدخلة غير صحيحة. يرجى التحقق من المدخلات.';
+    } else if (error.response?.data?.message) {
+      errorMessage = error.response.data.message;
+    }
+    
+    toast.error(errorMessage);
     throw error;
   }
 };
 
 export const deleteCustomer = async (id) => {
   try {
-    const response = await api.delete(`/customer/${id}`);
-    return response.data || { success: true, message: 'تم حذف العميل بنجاح' };
-  } catch (error) {
-    // Log detailed error information for debugging
-    console.error('Error deleting customer:', {
-      message: error.message,
-      status: error.response?.status,
-      data: error.response?.data,
-      url: error.config?.url,
-    });
-
-    // Show a toast notification with a user-friendly message
-    if (error.response?.status === 404) {
-      toast.error('العميل غير موجود. يرجى التحقق من البيانات.');
-    } else if (error.response?.status === 403) {
-      toast.error('ليس لديك صلاحية لحذف هذا العميل.');
-    } else {
-      toast.error('فشل في حذف العميل. يرجى المحاولة مرة أخرى.');
+    // التحقق من وجود معرف العميل
+    if (!id) {
+      throw new Error('معرف العميل مطلوب');
     }
 
-    // Throw a new error with a detailed message
-    throw new Error(error.response?.data?.message || 'فشل في حذف العميل');
+    // إرسال طلب الحذف إلى API
+    const response = await api.delete(`/customer/${id}`);
+    
+    // إرجاع النتيجة
+    return response.data || { 
+      success: true, 
+      message: 'تم حذف العميل بنجاح',
+      id: id
+    };
+  } catch (error) {
+    // تسجيل تفاصيل الخطأ للتشخيص
+    console.error('Error deleting customer:', {
+      customerId: id,
+      message: error.message,
+      status: error.response?.status,
+      statusText: error.response?.statusText,
+      data: error.response?.data,
+      url: error.config?.url,
+      timestamp: new Date().toISOString()
+    });
+
+    // رفع الخطأ مع معلومات مفيدة
+    const enhancedError = new Error(error.response?.data?.message || error.message || 'فشل في حذف العميل');
+    enhancedError.response = error.response;
+    enhancedError.customerId = id;
+    
+    throw enhancedError;
   }
 };

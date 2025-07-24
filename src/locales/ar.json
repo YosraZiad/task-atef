@@ -10,7 +10,9 @@
     "delete_confirm": "هل أنت متأكد أنك تريد حذف هذا العميل؟",
     "delete_success": "تم حذف العميل بنجاح!",
     "delete_not_found": "العميل غير موجود أو تم حذفه مسبقًا.",
+    "delete_not_found_removed": "العميل غير موجود في قاعدة البيانات وتم إزالته من القائمة.",
     "delete_unauthorized": "ليس لديك صلاحية لحذف العملاء.",
+    "sync_warning": "تم العثور على بيانات غير متزامنة. يرجى تحديث القائمة.",
     "fetch_details_error": "فشل في جلب تفاصيل العميل.",
     "invalid_id": "معرف العميل غير صالح.",
     "search_placeholder": "ابحث...",
@@ -28,6 +30,7 @@
       "entries": "إدخالات"
     },
     "table": {
+      "id": "المعرف",
       "name": "الاسم",
       "company": "الشركة",
       "mobile": "رقم الجوال",
@@ -47,33 +50,33 @@
     }
   },
 
-    "add_customer_modal": {
-      "title": "إضافة عميل جديد",
-      "full_name": "الاسم الكامل",
-      "company_name": "اسم الشركة",
-      "mobile_number": "رقم الجوال",
-      "master_mobile_number": "رقم الجوال الرئيسي",
-      "add_button": "إضافة عميل",
-      "cancel_button": "إلغاء"
-    },
-    "edit_customer_modal": {
-      "title": "تعديل بيانات العميل",
-      "full_name": "الاسم الكامل",
-      "company_name": "اسم الشركة",
-      "mobile_number": "رقم الجوال",
-      "master_mobile_number": "رقم الجوال الرئيسي",
-      "update_button": "تحديث العميل",
-      "cancel_button": "إلغاء"
-    },
-    "view_customer_modal": {
-      "title": "تفاصيل العميل",
-      "full_name": "الاسم الكامل",
-      "company_name": "اسم الشركة",
-      "mobile_number": "رقم الجوال",
-      "master_mobile_number": "رقم الجوال الرئيسي",
-      "creation_time": "وقت الإنشاء",
-      "close_button": "إغلاق"
-    },
+  "add_customer_modal": {
+    "title": "إضافة عميل جديد",
+    "full_name": "الاسم الكامل",
+    "company_name": "اسم الشركة",
+    "mobile_number": "رقم الجوال",
+    "master_mobile_number": "رقم الجوال الرئيسي",
+    "add_button": "إضافة عميل",
+    "cancel_button": "إلغاء"
+  },
+  "edit_customer_modal": {
+    "title": "تعديل بيانات العميل",
+    "full_name": "الاسم الكامل",
+    "company_name": "اسم الشركة",
+    "mobile_number": "رقم الجوال",
+    "master_mobile_number": "رقم الجوال الرئيسي",
+    "update_button": "تحديث العميل",
+    "cancel_button": "إلغاء"
+  },
+  "view_customer_modal": {
+    "title": "تفاصيل العميل",
+    "full_name": "الاسم الكامل",
+    "company_name": "اسم الشركة",
+    "mobile_number": "رقم الجوال",
+    "master_mobile_number": "رقم الجوال الرئيسي",
+    "creation_time": "وقت الإنشاء",
+    "close_button": "إغلاق"
+  },
   "sidebar": {
     "dashboard": "لوحة التحكم",
     "customers": "العملاء",
