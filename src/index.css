@@ -1,0 +1,58 @@
+/* index.css - ملف الأنماط الرئيسي */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-color: #ffffff;
+  --text-color: #000000;
+}
+html {
+  scroll-behavior: smooth;
+}
+.dark {
+  --bg-color: #1a202c;
+  --text-color: #ffffff;
+}
+
+body {
+  @apply bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100;
+  font-family: 'Cairo', sans-serif;
+  @apply text-gray-800;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+
+[dir="rtl"] {
+  direction: rtl;
+  text-align: right;
+}
+
+
+
+
+/* لعكس عناصر flex في الوضع العربي */
+[dir="rtl"] .flex-row-reverse-rtl {
+  flex-direction: row-reverse;
+}
+
+/* أنماط إضافية للوضع الليلي */
+.dark {
+  @apply bg-gray-900 text-gray-100;
+}
+
+
+/* تأثيرات حركية للأزرار */
+button {
+  transition: all 0.2s ease-in-out;
+}
+
+button:hover {
+  transform: translateY(-1px);
+}
+
+button:active {
+  transform: translateY(0);
+}

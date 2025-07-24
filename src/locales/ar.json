@@ -1,0 +1,88 @@
+{
+  "welcome": "مرحبًا",
+  "dashboard": "لوحة التحكم",
+  "customers": {
+    "title": "عملاء واتساب",
+    "add_success": "تم إضافة العميل بنجاح!",
+    "add_error": "فشل في إضافة العميل: {{message}}",
+    "update_success": "تم تحديث بيانات العميل بنجاح!",
+    "update_error": "فشل في تحديث بيانات العميل: {{message}}",
+    "delete_confirm": "هل أنت متأكد أنك تريد حذف هذا العميل؟",
+    "delete_success": "تم حذف العميل بنجاح!",
+    "delete_not_found": "العميل غير موجود أو تم حذفه مسبقًا.",
+    "delete_unauthorized": "ليس لديك صلاحية لحذف العملاء.",
+    "fetch_details_error": "فشل في جلب تفاصيل العميل.",
+    "invalid_id": "معرف العميل غير صالح.",
+    "search_placeholder": "ابحث...",
+    "refresh": "تحديث",
+    "add_customer": "إضافة عميل",
+    "no_customers": "لا يوجد عملاء.",
+    "items_per_page": "عدد العناصر لكل صفحة",
+    "pagination": {
+      "previous": "السابق",
+      "next": "التالي",
+      "page": "صفحة",
+      "of": "من",
+      "showing": "عرض",
+      "to": "إلى",
+      "entries": "إدخالات"
+    },
+    "table": {
+      "name": "الاسم",
+      "company": "الشركة",
+      "mobile": "رقم الجوال",
+      "master_mobile": "رقم الجوال الرئيسي",
+      "actions": "الإجراءات"
+    },
+    "actions": {
+      "view": "عرض",
+      "edit": "تعديل",
+      "delete": "حذف"
+    },
+    "sort": {
+      "newest_first": "الأحدث أولاً",
+      "oldest_first": "الأقدم أولاً",
+      "name_asc": "الاسم (أ-ي)",
+      "name_desc": "الاسم (ي-أ)"
+    }
+  },
+
+    "add_customer_modal": {
+      "title": "إضافة عميل جديد",
+      "full_name": "الاسم الكامل",
+      "company_name": "اسم الشركة",
+      "mobile_number": "رقم الجوال",
+      "master_mobile_number": "رقم الجوال الرئيسي",
+      "add_button": "إضافة عميل",
+      "cancel_button": "إلغاء"
+    },
+    "edit_customer_modal": {
+      "title": "تعديل بيانات العميل",
+      "full_name": "الاسم الكامل",
+      "company_name": "اسم الشركة",
+      "mobile_number": "رقم الجوال",
+      "master_mobile_number": "رقم الجوال الرئيسي",
+      "update_button": "تحديث العميل",
+      "cancel_button": "إلغاء"
+    },
+    "view_customer_modal": {
+      "title": "تفاصيل العميل",
+      "full_name": "الاسم الكامل",
+      "company_name": "اسم الشركة",
+      "mobile_number": "رقم الجوال",
+      "master_mobile_number": "رقم الجوال الرئيسي",
+      "creation_time": "وقت الإنشاء",
+      "close_button": "إغلاق"
+    },
+  "sidebar": {
+    "dashboard": "لوحة التحكم",
+    "customers": "العملاء",
+    "subscriptions": "الاشتراكات",
+    "balances": "الأرصدة",
+    "messages": "الرسائل",
+    "mobile_accounts": "حسابات الجوال",
+    "packages": "الباقات",
+    "logo_title": "Neosend",
+    "logo_alt": "Neosend Logo"
+  }
+}
